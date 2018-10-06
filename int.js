@@ -82,8 +82,8 @@ function findLastIndex($str, $x) {
   }
 }
 
-$str = "geeks for geeks two";
-$x = "two";
+$str = "This is simple test.";
+$x = "s";
 $index = findLastIndex($str, $x);
 if ($index == -1) {
   console.log("Character not found");
@@ -92,3 +92,36 @@ if ($index == -1) {
 }
 
 /************************* Find the last index of   *************************/
+
+function test(x) {
+  var x;
+  var y = x;
+  x = 2;
+  return [y, x];
+}
+console.log(test(1)); // [1,2]
+
+// Change the value of variable.
+var x = { data: "Bhavin" };
+console.log(x);
+
+x = { data: "bhavesh" };
+console.log(x);
+
+/************************* Pass by value   *************************/
+
+var x = 10;
+var y = x;
+
+x++;
+console.log(x); // 11
+console.log(y); // 10
+
+/************************* Pass by Reference   *************************/
+
+let x = { value: 10 };
+let y = x;
+
+x.value++;
+console.log(x); // x.value => 11
+console.log(y); // y.value => 11
