@@ -10,9 +10,9 @@ function getData() {
   console.log("third");
 }
 
-getData();
-getData(1, 2);
-getData(1, 2, 3);
+getData(); //third
+getData(1, 2); //third
+getData(1, 2, 3); //third
 
 /************************* Check string exist or not.  *************************/
 
@@ -54,7 +54,7 @@ obj[obj.length] = "5";
 console.log(obj);
 
 //add element at first of array
-obj.unshift("0");
+obj.unshift("5");
 console.log(obj);
 
 /************************* Find the last index of   *************************/
@@ -119,9 +119,69 @@ console.log(y); // 10
 
 /************************* Pass by Reference   *************************/
 
-let x = { value: 10 };
-let y = x;
+let xx = { value: 10 };
+let yy = xx;
 
-x.value++;
-console.log(x); // x.value => 11
-console.log(y); // y.value => 11
+xx.value++;
+console.log(xx); // x.value => 11
+console.log(yy); // y.value => 11
+
+/************************* Pass by Reference   *************************/
+
+/** + sign is for concat and adding **/
+/** - sign is for substract only, not for string  **/
+console.log(2 + "2"); // 22
+console.log(2 - "2"); // 0
+
+/************************* Remove the duplicate   *************************/
+let data = [1, 2, 2, 3];
+console.log([...new Set(data)]); //[1,2,3]
+
+/************************* Variable scope   *************************/
+function check() {
+  {
+    let a = 1;
+    var b = 2;
+  }
+  console.log(a); //ReferenceError: a is not defined
+  console.log(b);
+}
+//check()
+
+/************************* true value is 1 when it use operator   *************************/
+console.log(5 < 6 < 7); //true
+console.log(5 > 6 > 7); //false
+
+/************************* Prevent to add more element to object  *************************/
+var obj = {
+  name: "bhavin"
+};
+obj.age = "23";
+console.log(obj);
+
+var obj = {
+  name: "bhavin"
+};
+Object.freeze(obj); //freeze method is used to prevent new element updating/adding
+obj.age = "23";
+console.log(obj);
+
+var obj = {
+  name: "bhavin"
+};
+Object.seal(obj); //seal method is used to allow to update, prevent new element adding
+obj.name = "bhavesh";
+console.log(obj);
+
+var obj = {};
+//we can define the rules as well
+Object.defineProperty(obj, "name", {
+  value: "bhavin",
+  writable: false
+});
+
+obj.name = "bhavesh"; //It will not update.
+console.log(obj); //{name: "bhavin"}
+
+/*****************************    ******************************/
+console.log(Math.max()); //-Infinity
